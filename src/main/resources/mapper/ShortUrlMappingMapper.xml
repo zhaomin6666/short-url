@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zm.shorturl.app.dao.mapper.ShortUrlMappingMapper">
+
+
+    <!--通过 短链后缀 获取-->
+    <select id="findByShortUrl" resultType="com.zm.shorturl.app.entity.ShortUrlMapping">
+        SELECT t.*
+        FROM short_url_mapping t
+        WHERE t.short_url = #{shortUrl}
+    </select>
+
+    <!--通过 长地址 获取-->
+    <select id="findByRawUrl" resultType="com.zm.shorturl.app.entity.ShortUrlMapping">
+        SELECT t.*
+        FROM short_url_mapping t
+        WHERE t.raw_url = #{rawUrl}
+    </select>
+</mapper>
